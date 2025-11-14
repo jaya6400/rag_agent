@@ -113,6 +113,13 @@ Check the interactive API documentation:
 - Swagger UI: `http://localhost:8000/docs`
 - ReDoc: `http://localhost:8000/redoc`
 
+### Start Redis queue worker
+
+```
+cd queues
+rq worker
+```
+
 ### Example Query
 
 ```bash
