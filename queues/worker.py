@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 import os
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_qdrant import QdrantVectorStore
+from langchain_qdrant import Qdrant
 
 load_dotenv()
 
@@ -15,7 +15,7 @@ embedding_model = HuggingFaceEmbeddings(
     model_kwargs={'device': 'cpu'}
 )
 
-vector_db = QdrantVectorStore.from_existing_collection(
+vector_db = Qdrant.from_existing_collection(
     url="http://localhost:6333",
     collection_name="learning_rag",
     embedding=embedding_model,

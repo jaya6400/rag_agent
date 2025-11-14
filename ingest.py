@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 import google.generativeai as genai
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_qdrant import QdrantVectorStore
+from langchain_qdrant import Qdrant
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -32,7 +32,7 @@ chunks = text_splitter.split_documents(documents)
 print(f"✂️  Split into {len(chunks)} chunks")
 
 print("🔄 Creating Qdrant collection and adding documents...")
-vector_db = QdrantVectorStore.from_documents(
+vector_db = Qdrant.from_documents(
     documents=chunks,
     embedding=embedding_model,
     url="http://localhost:6333",
